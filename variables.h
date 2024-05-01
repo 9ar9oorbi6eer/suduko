@@ -23,6 +23,7 @@ typedef struct {
     int start_col;
     int end_col;
     int thread_num;
+    int delay;
 } parameters;
 
 int check_validity(int *array);
