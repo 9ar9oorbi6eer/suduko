@@ -23,6 +23,7 @@ int check_validity(int *array)
     return 1;
 }
 
+
 // Read Sudoku grid from file
 void readFromFile(const char *filename) 
 {
