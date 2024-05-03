@@ -1,6 +1,8 @@
 #include "variables.h"
 #include "threads.h"
 
+// THIS C FILE CONTIANS ALL THREADS FROM 1 - 4
+
 
 // thread 1
 void *validate_thread1(void *args) 
@@ -10,7 +12,7 @@ void *validate_thread1(void *args)
     int end_row = param->end_row;
     int delay = param->delay;
 
-    // printf("Thread 1 started\n"); // Print at the start of thread
+    
 
     // Validate rows
     for (int i = start_row; i <= end_row; i++) 
@@ -21,12 +23,8 @@ void *validate_thread1(void *args)
             validRow[i] = 1;
             Counter++;
             pthread_mutex_unlock(&lock);
-            // printf("Thread 1 validating row %d: valid\n", i + 1);
+          
         }
-        // else 
-        // {
-        //     printf("Thread 1 validating row %d: invalid\n", i + 1);
-        // }
  
         sleep(delay);  // Include delay after validating each row
  
@@ -50,18 +48,14 @@ void *validate_thread1(void *args)
             validSub[sub] = 1;
             Counter++;
             pthread_mutex_unlock(&lock);
-            // printf("Thread 1 validating sub-grid %d: valid\n", sub + 1);
+          
         }
-        // else 
-        // {
-        //     printf("Thread 1 validating sub-grid %d: invalid\n", sub + 1);
-        // }
  
         sleep(delay);  // Include delay after validating each sub-grid
  
     }
 
-    // printf("Thread 1 completed\n"); // Print at the end of thread
+    
     return NULL;
 }
 
@@ -72,8 +66,7 @@ void *validate_thread2(void *args)
     int end_row = param->end_row;
     int delay = param->delay;
 
-    // printf("Thread 2 started\n"); // Print at the start of thread
-
+    
     // Validate rows
     for (int i = start_row; i <= end_row; i++) 
     {
@@ -83,12 +76,8 @@ void *validate_thread2(void *args)
             validRow[i] = 1;
             Counter++;
             pthread_mutex_unlock(&lock);
-            // printf("Thread 2 validating row %d: valid\n", i + 1);
+         
         }
-        // else 
-        // {
-        //     printf("Thread 2 validating row %d: invalid\n", i + 1);
-        // }
  
         sleep(delay);
  
@@ -113,18 +102,14 @@ void *validate_thread2(void *args)
             validSub[sub] = 1;
             Counter++;
             pthread_mutex_unlock(&lock);
-            // printf("Thread 2 validating sub-grid %d: valid\n", sub + 1);
+            
         }
-        // else 
-        // {
-        //     printf("Thread 2 validating sub-grid %d: invalid\n", sub + 1);
-        // }
  
         sleep(delay);
  
     }
 
-    // printf("Thread 2 completed\n"); // Print at the end of thread
+   
     return NULL;
 }
 // thread 3
@@ -135,8 +120,6 @@ void *validate_thread3(void *args)
     int end_row = param->end_row;
     int delay = param->delay;
 
-    // printf("Thread 3 started\n"); // Print at the start of thread
-
     // Validate rows 7, 8, and 9
     for (int i = start_row; i <= end_row; i++) 
     {
@@ -146,12 +129,8 @@ void *validate_thread3(void *args)
             validRow[i] = 1;
             Counter++;
             pthread_mutex_unlock(&lock);
-            // printf("Thread 3 validating row %d: valid\n", i + 1);
+        
         }
-        // else 
-        // {
-        //     printf("Thread 3 validating row %d: invalid\n", i + 1);
-        // }
  
         sleep(delay);  // Include delay after validating each row
  
@@ -175,18 +154,14 @@ void *validate_thread3(void *args)
             validSub[sub] = 1;
             Counter++;
             pthread_mutex_unlock(&lock);
-            // printf("Thread 3 validating sub-grid %d: valid\n", sub + 1);
+          
         }
-        // else 
-        // {
-        //     printf("Thread 3 validating sub-grid %d: invalid\n", sub + 1);
-        // }
 
         sleep(delay);  // Include delay after validating each sub-grid
 
     }
 
-    // printf("Thread 3 completed\n"); // Print at the end of thread
+
     return NULL;
 }
 
@@ -195,7 +170,6 @@ void *validate_thread4(void *args)
     parameters *param = (parameters *)args;
     int delay = param->delay;
 
-    // printf("Thread 4 started\n"); // Print at the start of thread
 
     // Validate columns
     for (int i = 0; i < GRID_SIZE; i++) 
@@ -212,18 +186,14 @@ void *validate_thread4(void *args)
             validCol[i] = 1;
             Counter++;
             pthread_mutex_unlock(&lock);
-            // printf("Thread 4 validating column %d: valid\n", i + 1);
+           
         }
-        // else 
-        // {
-        //     printf("Thread 4 validating column %d: invalid\n", i + 1);
-        // }
+        
 
         sleep(delay);  // Include delay after validating each column
 
     }
 
-    // printf("Thread 4 completed\n"); // Print at the end of thread
     return NULL;
 }
 

@@ -1,5 +1,7 @@
 #include "variables.h"
 
+// THIS C FILE CONTAINS STRUCTS, VARIABLES AND FILE I/O
+
 // Definitions
 int Sol[GRID_SIZE][GRID_SIZE];
 int validRow[GRID_SIZE];
